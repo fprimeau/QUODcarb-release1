@@ -75,6 +75,8 @@ See example scripts (`src/example1.m`, `src/example2.m`, `src/example3.m`) showi
  for the paper, take a look at `paper_scripts/driver.m` (can download the 
  GOMECC-3 dataset via `paper_scripts/parse_gomecc3_data.m` to try it out for yourself).
 
+ View tutorial videos on youtuube: https://www.youtube.com/playlist?list=PL8Z4MrPvr_ClapjsVT4urcL6KyktVkyff.
+
 ## Recreate Fennell & Primeau 2024 Figures
 To recreate the figures from the first QUODcarb paper, see the directory `paper_scripts`. Start by running `paper_scripts/parse_gomecc_data.m` to load the GOMECC-3 Dataset to your local computer. Then run `paper_scripts/driver.m` to run QUODcarb through all 1119 datapoints 26 times, one for each possible calculation. This requires making new directories on your device to store the output .mat files. The code takes ~4hrs to run on a remote device and 20GB of storage. Once the 26 .mat files are loaded you may choose any of the plotting scripts to plot the desired figures.
 
