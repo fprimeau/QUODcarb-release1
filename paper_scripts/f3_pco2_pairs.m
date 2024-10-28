@@ -1,5 +1,5 @@
 
-% script used to plot figure 2 in Fennell & Primeau, 2024
+% script used to plot figure 3 in Fennell & Primeau, 2024
 % user needs to have run 'driver.m' and have all 26 output est.mat files
 % accessible in 'output_mat_files'
 
