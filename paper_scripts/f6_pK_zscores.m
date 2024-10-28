@@ -183,7 +183,7 @@ pos = get(h,'Position');
 set(h,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3),pos(4)]);
 
 
-print(h,'figure_5.pdf','-dpdf','-r0');
+print(h,'f6_pK_zscores.pdf','-dpdf','-r0');
 
 
 
