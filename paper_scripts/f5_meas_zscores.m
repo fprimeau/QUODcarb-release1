@@ -1,5 +1,5 @@
 
-% script used to plot figure 4 in Fennell & Primeau, 2024
+% script used to plot figure 5 in Fennell & Primeau, 2024
 % user needs to have run 'driver.m' and have output est26.mat file
 % accessible in 'output_mat_files'
 
@@ -79,7 +79,7 @@ set(h,'Units','Inches');
 pos = get(h,'Position');
 set(h,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3),pos(4)]);
 
-print(h,'figure_4.pdf','-dpdf','-r0');
+print(h,'f5_meas_zscores.pdf','-dpdf','-r0');
 
 
 
