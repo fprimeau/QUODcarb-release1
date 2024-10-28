@@ -1,5 +1,5 @@
 
-% script used to plot figure 6 of Fennell & Primeau, 2024
+% script used to plot figure 7 of Fennell & Primeau, 2024
 % user needs to have run 'driver.m' and have all 26 output est.mat files
 % accessible in 'output_mat_files'
 
@@ -308,7 +308,7 @@ set(h,'Units','Inches');
 pos = get(h,'Position');
 set(h,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3),pos(4)]);
 
-print(h,'figure_6.pdf','-dpdf');
+print(h,'f7_fyhat_sig.pdf','-dpdf');
 
 
 
