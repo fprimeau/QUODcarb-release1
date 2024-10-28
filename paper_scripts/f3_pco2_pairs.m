@@ -50,6 +50,7 @@ for k = 1:10
         sig(i,k)    = est(i).tp(2).upco2; % posterior uncertainty
         dpco2(i,k)  = pco2obs(i) - pco2(i,k); % meas - calc
         sig_in(i,k) = 0.01*pco2obs(i);
+        perc_sig_out(i,k) = 100*sig(i,k)/pco2(i,k);
         % Z-score = ( meas - calc ) / sigma_meas
         zpco2(i,k)  = dpco2(i,k)/(sig_in(i,k)); % sigma_meas, 1% uncert
         zsig2(i,k)  = dpco2(i,k)/(sqrt(sig(i,k)^2 + sig_in(i,k)^2));
@@ -107,7 +108,8 @@ xticklabels(lbl);
 grid on
 
 nexttile % sigma_posterior uatm
-b2 = boxchart(sig); % quodcarb
+% b2 = boxchart(sig); % quodcarb
+b2 = boxchart(perc_sig_out); % quodcarb
 b2.JitterOutliers = 'on';
 b2.MarkerStyle = '.';
 b2.MarkerSize = 7;
@@ -118,7 +120,7 @@ b2.MarkerColor = clr;
 b2.WhiskerLineColor = clr;
 b2.LineWidth = 1.4;
 
-ylim([0 65])
+% ylim([0 65])
 
 ax = gca;
 ax.FontSize = 9;
@@ -177,7 +179,7 @@ set(h,'Units','Inches');
 pos = get(h,'Position');
 set(h,'PaperPositionMode','Auto','PaperUnits','Inches','PaperSize',[pos(3),pos(4)]);
 
-print(h,'figure_2.pdf','-dpdf','-r0');
+print(h,'f3_pco2_pairs.pdf','-dpdf','-r0');
 
 
 
