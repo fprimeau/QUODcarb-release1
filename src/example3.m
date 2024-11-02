@@ -48,6 +48,7 @@ for i = 1:nD
     obs(i).tp(1).uT = 0.01; % in-situ temperature uncertainty, 1 sigma
     obs(i).tp(1).P  = fakedata(10,i); % in-situ pressure (dbar)
     obs(i).tp(1).uP = 0.63; % in-situ pressure uncertainty (dbar), 1 sigma
+    obs(i).tp(1).upK1 = 0.01; % want to reset the upK1 to 0.01;
 
     % temperature and pressure dependent 2nd system, for ph & co3 25 degC
     obs(i).tp(2).T  = 25.0; % temperature for ph in Celsius
@@ -58,6 +59,7 @@ for i = 1:nD
     obs(i).tp(2).uph    = 0.01; % ph uncertainty, 1 sigma
     obs(i).tp(2).co3    = fakedata(6,i); % total carbonate ion (umol/kg)
     obs(i).tp(2).uco3   = 0.02*fakedata(6,i); % 2% CO3 uncertainty (umol/kg), 1 sigma
+    obs(i).tp(2).upK1   = 0.01; % want to reset the upK1 to 0.01;
 
     % temperature and pressure dependent 3rd system, for pco2 20 degC
     obs(i).tp(3).T  = 20.0; % temperature for pCO2 in Celsius
@@ -66,12 +68,14 @@ for i = 1:nD
     obs(i).tp(3).uP = 0.03; % dbar, pressure for pCO2 uncertainty, 1 sigma
     obs(i).tp(3).pco2   = fakedata(5,i); % partial pressure CO2 (pCO2) (uatm)
     obs(i).tp(3).upco2  = 0.01*fakedata(5,i); % 1% pCO2 uncertainty (uatm), 1 sigma
+    obs(i).tp(3).upK1   = 0.01; % want to reset the upK1 to 0.01;
 
     % temperature and pressure dependend 4th system
     obs(i).tp(4).T  = 15.0; % want an output at 15 deg C
     obs(i).tp(4).uT = 0.01; 
     obs(i).tp(4).P  = 10.0; % want output at 10 dbar
     obs(i).tp(4).uP = 0.03;
+    obs(i).tp(4).upK1 = 0.01; % want to reset the upK1 to 0.01;
 
 end
 
@@ -91,9 +95,11 @@ save example3.mat est; % save output estimate as a mat file
 % est(1).tp(3).pco2 = 938.3595;     % posterior pco2
 % est(1).tp(4).T    = 15;           % output system @15degC
 % est(1).tp(4).P    = 10;
-% est(1).tp(2).OmegaAr = 1.5735;
-% est(1).tp(2).OmegaCa = 2.3864;
-% est(1).tp(2).Revelle = 14.4902;
+% est(1).tp(2).OmegaAr = 1.5735;    
+% est(1).tp(2).OmegaCa = 2.3864;    
+% est(1).tp(2).Revelle = 14.4902;   
+% est(1).f          = 13.6064;      % f(yhat) in paper, numerical measure 
+                                    % of internal consistency 
 
 
 
