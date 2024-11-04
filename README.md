@@ -106,7 +106,7 @@ To recreate the figures from the first QUODcarb paper, see the directory `paper_
 - The input uncertainty must be a non-zero number as -log10(0) is undefined and breaks the code.
 
 ## Citation
-Not published yet, documentation will be updated when available. A draft of the manuscript under review in the Journal of Marine Chemistry is available here: 
+Not published yet, documentation will be updated when available. A draft of the manuscript under review in the Journal of Marine Chemistry is available here: [QUODcarb_revised.pdf](https://bpb-us-e2.wpmucdn.com/faculty.sites.uci.edu/dist/f/727/files/2024/11/QUODcarb_revised.pdf)
 
 
 ## References
