@@ -106,7 +106,8 @@ To recreate the figures from the first QUODcarb paper, see the directory `paper_
 - The input uncertainty must be a non-zero number as -log10(0) is undefined and breaks the code.
 
 ## Citation
-Not published yet, documentation will be updated when available.
+Not published yet, documentation will be updated when available. A draft of the manuscript under review in the Journal of Marine Chemistry is available here: [View the PDF document](paper_scripts/QUODcarb_revised.pdf)
+
 
 ## References
 Lewis, E., & Wallace, D. W. R. (1998). Program developed for CO2 system calculations. ORNL/CDIAC-105. Carbon Dioxide Information Analysis Center, Oak Ridge National Laboratory, Oak Ridge, TN.
