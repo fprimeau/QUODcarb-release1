@@ -27,6 +27,7 @@ opt.printmes    = 0; % print screen messages? (1=on, 0=off)
 opt.co2press    = 1; % pressure correction for p2f and K0 (1=on, 0=off)
 opt.Revelle     = 1; % calculate Revelle factor? (1=on, 0=off)
 
+q  = @(x) 10^(-x);
 nD = length(fakedata); % number of datapoints
 
 for i = 1:nD
@@ -81,7 +82,7 @@ end
 
 [est,obs,sys,iflag,opt] = QUODcarb(obs,opt);
 
-save example3.mat est; % save output estimate as a mat file
+% save example3.mat est; % save output estimate as a mat file
 
 % output est(1) values should be:
 % est(1).TC         = 2194.8;       % posterior TC
@@ -101,6 +102,20 @@ save example3.mat est; % save output estimate as a mat file
 % est(1).f          = 13.6064;      % f(yhat) in paper, numerical measure 
                                     % of internal consistency 
 
+% calculate SIR: HCO3/H_free at tp(1) and est(1)
+SIR = est(1).tp(1).hco3/est(1).tp(1).h_free;
+% another way to calculate SIR:
+% SIR = q(est(1).tp(1).phco3 - est(1).tp(1).p_free)*1e6; % convt umol/kg
+
+% uSIR: y_u,l = SIR ± sqrt(v^T*Sigma*v)
+% v^T*Sigma*v = inner;
+inner = ( ( est(1).C(sys.tp(1).iphco3) ) - ( est(1).C(sys.tp(1).iph_free) ) )^2;
+y_l = ( est(1).tp(1).phco3 - est(1).tp(1).ph_free ) - sqrt(inner);
+y_u = ( est(1).tp(1).phco3 - est(1).tp(1).ph_free ) + sqrt(inner);
+uSIR = 0.5 * abs( q(y_u)*1e6 - q(y_l)*1e6 ); % 1e6 converts to umol/kg
+
+% SIR = 1.6117e5; % for est(1).tp(1)
+% uSIR = 2.5661e3; % for est(1).tp(1)
 
 
 
