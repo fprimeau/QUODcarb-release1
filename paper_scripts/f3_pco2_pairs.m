@@ -101,6 +101,9 @@ ylim([-100 100]) % dpco2
 
 ax = gca;
 ax.FontSize = 9;
+t = title('\bf{a}');
+t.FontSize = 10;
+t.Interpreter = 'latex';
 xlabel('QUODcarb Input') 
 ylabel('Delta $p$CO$_2$ = Meas - Calc ($\mu$atm)') % pco2
 ax.XTickMode = 'auto';
@@ -124,6 +127,9 @@ b2.LineWidth = 1.4;
 
 ax = gca;
 ax.FontSize = 9;
+t = title('\bf{b}');
+t.FontSize = 10;
+t.Interpreter = 'latex';
 xlabel('QUODcarb Input') % quodcarb
 ylabel('$p$CO$_2$ $u_{posterior}$ ($\mu$atm)') % upco2
 ax.XTickMode = 'auto';
@@ -146,6 +152,9 @@ ylim([-20 20])
 
 ax = gca;
 ax.FontSize = 9;
+t = title('\bf{c}');
+t.FontSize = 10;
+t.Interpreter = 'latex';
 xlabel('QUODcarb Input') % quodcarb
 ylabel('Z-scores: ( Meas - Calc ) / $u_{meas}$')
 ax.XTickMode = 'auto';
@@ -168,6 +177,9 @@ b4.LineWidth = 1.4;
 
 ax = gca;
 ax.FontSize = 9;
+t = title('\bf{d}');
+t.FontSize = 10;
+t.Interpreter = 'latex';
 xlabel('QUODcarb Input') % quodcarb
 ylabel('Z-scores: ( Meas - Calc ) / ($u_{meas}^2 + u_{calc}^2$)$^{1/2}$')
 ax.XTickMode = 'auto';
