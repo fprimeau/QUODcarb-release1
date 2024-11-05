@@ -103,21 +103,17 @@ end
                                     % of internal consistency 
 
 % calculate SIR: HCO3/H_free at tp(1) and est(1)
-SIR = est(1).tp(1).hco3/est(1).tp(1).h_free;
-% another way to calculate SIR:
-% SIR = q(est(1).tp(1).phco3 - est(1).tp(1).p_free)*1e6; % convt umol/kg
-
-% uSIR: y_u,l = SIR ± sqrt(v^T*Sigma*v)
-% v^T*Sigma*v = inner;
-inner = ( ( est(1).C(sys.tp(1).iphco3) ) - ( est(1).C(sys.tp(1).iph_free) ) )^2;
-y_l = ( est(1).tp(1).phco3 - est(1).tp(1).ph_free ) - sqrt(inner);
-y_u = ( est(1).tp(1).phco3 - est(1).tp(1).ph_free ) + sqrt(inner);
-uSIR = 0.5 * abs( q(y_u)*1e6 - q(y_l)*1e6 ); % 1e6 converts to umol/kg
-
-% SIR = 1.6117e5; % for est(1).tp(1)
-% uSIR = 2.5661e3; % for est(1).tp(1)
-
-
+nr = size(est(1).C,1);
+v = zeros(nr,1);
+v( [ sys.tp(1).iphco3, sys.tp(1).iph_free ] )  = [ 1; -1 ];
+sig = sqrt( v' * est(1).C * v);
+% crank 1:
+SIR = q(v' * est(1).yhat);
+% crank 2:
+SIRu = q( v' * est(1).yhat - sig );
+% crank 3:
+SIRl = q( v' * est(1).yhat + sig );
+uSIR = 0.5*(SIRu-SIRl);
 
 
 

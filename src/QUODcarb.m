@@ -5328,9 +5328,11 @@ function [est] = parse_output(z,sigx,sys,f,C)
             end
         end
 
-    % PLEASE ADD NEW VARIABLES HERE AT END (for PrintCSV's sake)
-    est.f       = f; % residual f value, from limp
-    est.C       = C;
+        % PLEASE ADD NEW VARIABLES HERE AT END (for PrintCSV's sake)
+        est.f       = f; % residual f value, from limp
+        est.C       = C;
+        nr = size(C,1);
+        est.yhat    = z(1:nr);
     end
 end
 
