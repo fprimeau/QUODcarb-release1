@@ -103,9 +103,18 @@ end
                                     % of internal consistency 
 
 
-
-
-
+% calculate SIR: HCO3/H_free at tp(1) and est(1)
+nr = size(est(1).C,1);
+v = zeros(nr,1);
+v( [ sys.tp(1).iphco3, sys.tp(1).iph_free ] )  = [ 1; -1 ];
+sig = sqrt( v' * est(1).C * v);
+% crank 1:
+SIR = q(v' * est(1).yhat);
+% crank 2:
+SIRu = q( v' * est(1).yhat - sig );
+% crank 3:
+SIRl = q( v' * est(1).yhat + sig );
+uSIR = 0.5*(SIRu-SIRl);
 
 % to check your numbers:
 % SIR = 1.6117e5; % for est(1).tp(1)
