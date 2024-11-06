@@ -104,6 +104,7 @@ end
 
 
 % calculate SIR: HCO3/H_free at tp(1) and est(1)
+% last paragraph of part 2.4 in paper
 nr = size(est(1).C,1);
 v = zeros(nr,1);
 v( [ sys.tp(1).iphco3, sys.tp(1).iph_free ] )  = [ 1; -1 ];
